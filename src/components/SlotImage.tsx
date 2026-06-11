@@ -24,8 +24,8 @@ const MAP: Record<string, { src: string; alt: string }> = {
     alt: 'Interior renovation and finish carpentry by a licensed Medina Services contractor',
   },
   'IMG-05': {
-    src: '/images/company.png',
-    alt: 'Medina Services owner reviewing work on a Northern Virginia job site',
+    src: '/images/about-us.jpeg',
+    alt: 'The owner of Medina Services with his wife — the family behind the company',
   },
   'IMG-A1': {
     src: '/images/about-hero.png',
@@ -50,6 +50,8 @@ export default function SlotImage({
   className,
   sizes = '(max-width: 900px) 100vw, 50vw',
   priority = false,
+  objectPosition,
+  objectFit = 'cover',
 }: {
   slot: string;
   ratio?: string; // e.g. "4 / 3" (ignored when fill)
@@ -57,6 +59,8 @@ export default function SlotImage({
   className?: string;
   sizes?: string;
   priority?: boolean;
+  objectPosition?: string; // e.g. "bottom" — where cover crops anchor (default centered)
+  objectFit?: 'cover' | 'contain'; // 'contain' shows the whole image (e.g. a full portrait)
 }) {
   const m = MAP[slot];
   if (!m) return <Placeholder slot={slot} ratio={ratio} className={className} />;
@@ -66,7 +70,14 @@ export default function SlotImage({
       className={`slot-img ${fill ? 'slot-img--fill' : ''} ${className ?? ''}`.trim()}
       style={fill ? undefined : { aspectRatio: ratio }}
     >
-      <Image src={m.src} alt={m.alt} fill sizes={sizes} style={{ objectFit: 'cover' }} priority={priority} />
+      <Image
+        src={m.src}
+        alt={m.alt}
+        fill
+        sizes={sizes}
+        style={{ objectFit, objectPosition }}
+        priority={priority}
+      />
     </div>
   );
 }

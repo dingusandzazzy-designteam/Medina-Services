@@ -26,7 +26,11 @@ export default function Home() {
       <RecentWork />
       <CompanyOverview />
       <WhyMedina />
-      <StatementBand tone="navy" {...statements.accountability} />
+      <StatementBand
+        tone="navy"
+        {...statements.accountability}
+        figure="statement-owner.png"
+      />
       <Testimonials />
       <ContactSection />
     </>

@@ -876,6 +876,10 @@ h3 {
   z-index: 1;
   pointer-events: none;
 }
+/* Owner cutout (navy band) sits ~10% smaller so it doesn't crowd the top edge */
+.statement--navy .statement__figure {
+  height: 86%;
+}
 @media (max-width: 820px) {
   .statement--figure .statement__text {
     max-width: 100%;
