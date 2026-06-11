@@ -1,7 +1,9 @@
 import Reveal from '@/components/Reveal';
+import SlotImage from '@/components/SlotImage';
 import { whyMedina } from '@/lib/content';
 
-/** S8 — 7 differentiator blocks. */
+/** S8 — differentiators. Sticky documentary image (left) + single-column numbered
+ * list (right). Credential codes in each title are split off into a muted secondary line. */
 export default function WhyMedina() {
   return (
     <section className="section section--alt" id="why" aria-labelledby="why-h">
@@ -20,18 +22,32 @@ export default function WhyMedina() {
           </Reveal>
         </div>
 
-        <div className="why__list">
-          {whyMedina.blocks.map((block, i) => (
-            <Reveal className="why__row" key={block.title} index={i % 2}>
-              <span className="why__row-num" aria-hidden="true">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3>{block.title}</h3>
-                <p>{block.body}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="why__layout">
+          <div className="why__media">
+            <div className="why__media-inner">
+              <Reveal variant="clip">
+                <SlotImage slot="IMG-A1" ratio="4 / 5" sizes="(max-width: 900px) 100vw, 40vw" />
+              </Reveal>
+            </div>
+          </div>
+
+          <ol className="why__list">
+            {whyMedina.blocks.map((block, i) => {
+              const [name, code] = block.title.split(' — ');
+              return (
+                <Reveal as="li" className="why__row" key={block.title} index={i}>
+                  <span className="why__row-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="why__row-text">
+                    <h3 className="why__row-title">{name}</h3>
+                    {code && <span className="why__code">{code}</span>}
+                    <p>{block.body}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import { nav } from '@/lib/content';
@@ -24,9 +24,17 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll(); // honor initial scroll position (e.g. on reload mid-page)
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="nav">
+    <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`.trim()}>
       <div className="container container-wide nav__inner">
         <Logo />
 

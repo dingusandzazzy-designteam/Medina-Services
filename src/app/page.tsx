@@ -17,7 +17,12 @@ export default function Home() {
       <TrustBar />
       <ServicesOverview />
       <ServiceDetails />
-      <StatementBand tone="green" {...statements.craftsmanship} figure="statement-painter.png" />
+      <StatementBand
+        tone="green"
+        {...statements.craftsmanship}
+        figure="statement-painter.png"
+        cta={{ label: 'Request a Free Estimate', href: '#estimate' }}
+      />
       <RecentWork />
       <CompanyOverview />
       <WhyMedina />

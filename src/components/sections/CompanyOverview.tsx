@@ -22,6 +22,16 @@ export default function CompanyOverview() {
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </div>
+
+            <dl className="company__anchors">
+              {companyOverview.anchors.map((a) => (
+                <div className="company__anchor" key={a.value}>
+                  <dt className="company__anchor-value">{a.value}</dt>
+                  <dd className="company__anchor-label">{a.label}</dd>
+                </div>
+              ))}
+            </dl>
+
             <Button href={companyOverview.cta.href} variant="on-navy" withArrow>
               {companyOverview.cta.label}
             </Button>
@@ -29,7 +39,7 @@ export default function CompanyOverview() {
 
           <div className="company__media">
             <Reveal variant="clip" index={1}>
-              <SlotImage slot="IMG-05" ratio="4 / 5" sizes="(max-width: 900px) 100vw, 40vw" />
+              <SlotImage slot="IMG-05" fill sizes="(max-width: 900px) 100vw, 40vw" />
             </Reveal>
           </div>
         </div>

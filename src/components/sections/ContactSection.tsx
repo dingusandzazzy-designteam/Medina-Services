@@ -36,8 +36,8 @@ export default function ContactSection() {
             </div>
 
             <p className="booking-note booking-note--spaced" id="booking">
-              Prefer to talk it through? <strong>Book a Consultation</strong> — scheduling tool
-              coming soon (Phase&nbsp;4). For now, call or use the form.
+              Prefer to talk it through? <strong>Call us or send the form</strong>, and we&rsquo;ll
+              schedule a consultation that fits your timeline.
             </p>
           </div>
 

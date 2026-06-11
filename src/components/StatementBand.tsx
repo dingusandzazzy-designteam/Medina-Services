@@ -1,4 +1,5 @@
 import Reveal from '@/components/Reveal';
+import Button from '@/components/Button';
 
 /**
  * Full-bleed "billboard" statement band — the brand guide's signature editorial moment
@@ -6,17 +7,20 @@ import Reveal from '@/components/Reveal';
  * revealed with a clip-path mask-wipe.
  * Optional `figure` (a filename in /public/images) renders a transparent-PNG cutout at
  * bottom-right via background-image — so a missing asset degrades gracefully (no broken img).
+ * Optional `cta` turns the band into a call to action (white button, high contrast).
  */
 export default function StatementBand({
   lead,
   emphasis,
   tone = 'navy',
   figure,
+  cta,
 }: {
   lead: string;
   emphasis: string;
   tone?: 'navy' | 'green';
   figure?: string;
+  cta?: { label: string; href: string };
 }) {
   return (
     <section
@@ -29,6 +33,13 @@ export default function StatementBand({
           <Reveal as="p" variant="clip" className="statement__emphasis">
             {emphasis}
           </Reveal>
+          {cta && (
+            <div className="statement__cta">
+              <Button href={cta.href} variant="on-navy" withArrow>
+                {cta.label}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
       {figure && (

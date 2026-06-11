@@ -39,8 +39,8 @@ const MAP: Record<string, { src: string; alt: string }> = {
   'IMG-G2': { src: '/images/gallery-2.png', alt: 'Exterior pressure washing and property improvement' },
   'IMG-G3': { src: '/images/gallery-3.png', alt: 'Freshly painted interior wall and trim' },
   'IMG-G4': { src: '/images/gallery-4.png', alt: 'Finished renovation detail and trim carpentry' },
-  'IMG-G5': { src: '/images/gallery-5.png', alt: 'Medina Services contractor coordinating work on a commercial site' },
-  'IMG-G6': { src: '/images/gallery-6.png', alt: 'Professional tools, materials, and blueprints prepared for a project' },
+  'IMG-G5': { src: '/images/gallery-5.png', alt: 'Interior surface and drywall repair in progress by a Medina Services tradesperson' },
+  'IMG-G6': { src: '/images/gallery-6.png', alt: 'Seasonal grounds detailing at a Northern Virginia commercial property' },
 };
 
 export default function SlotImage({

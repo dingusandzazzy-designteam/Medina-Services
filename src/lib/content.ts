@@ -152,12 +152,22 @@ export const serviceDetails = [
 ];
 
 // SW — RECENT WORK (inserted; Requirements-driven, no fabricated claims)
+// Captions are factual descriptors of the work shown (the three service lines) —
+// NOT fabricated project names/locations/clients. 2 images per service line.
 export const recentWork = {
   h2: 'Recent Work',
   intro:
     'A look at the grounds, maintenance, and renovation work we deliver for commercial, government, and residential clients across Northern Virginia.',
-  // 6 documentary gallery slots — see prompts/homepage.md (IMG-G1…G6)
-  items: ['IMG-G1', 'IMG-G2', 'IMG-G3', 'IMG-G4', 'IMG-G5', 'IMG-G6'],
+  // 6 documentary gallery slots (4:5) — see prompts/homepage.md (IMG-G1…G6)
+  items: [
+    { slot: 'IMG-G1', category: 'Grounds Maintenance', caption: 'Commercial landscape upkeep' },
+    { slot: 'IMG-G2', category: 'Property Maintenance & Repair', caption: 'Exterior cleaning & restoration' },
+    { slot: 'IMG-G3', category: 'Remodeling & Construction', caption: 'Interior painting & finishing' },
+    { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Finish carpentry & trim' },
+    { slot: 'IMG-G5', category: 'Property Maintenance & Repair', caption: 'Surface & drywall repair' },
+    { slot: 'IMG-G6', category: 'Grounds Maintenance', caption: 'Seasonal grounds detailing' },
+  ],
+  cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };
 
 // S7 — COMPANY OVERVIEW
@@ -166,6 +176,12 @@ export const companyOverview = {
   paragraphs: [
     'Medina Services, LLC is a Virginia Class A Licensed, minority-owned contracting firm serving commercial, government, and residential clients throughout Northern Virginia. Since 2016, we have delivered professional grounds maintenance, property repair, and full-scale renovations with the dependability and personal accountability that only a family-owned business can provide. By combining three service lines under a single contractor, we streamline your procurement process and eliminate the hassle of juggling multiple vendors.',
     'When you work with Medina Services, you work directly with our owner. No lost emails, no mid-project handoffs, no subcontracting surprises. Just honest work, done right.',
+  ],
+  // Factual anchors drawn from the copy/credentials — no fabricated numbers.
+  anchors: [
+    { value: 'Since 2016', label: 'Serving Northern Virginia' },
+    { value: 'Class A', label: 'Virginia Licensed Contractor' },
+    { value: 'Owner-Led', label: 'On every project' },
   ],
   cta: { label: 'Learn Our Story', href: '/about' },
 };
@@ -208,15 +224,32 @@ export const whyMedina = {
   ],
 };
 
-// S9 — TESTIMONIALS (PLACEHOLDER — do not fabricate)
+// S9 — TESTIMONIALS
+// isPlaceholder=true → the `quotes` below are SAMPLE content for layout only.
+// They must be replaced with real client reviews (or the section hidden) before launch.
+// Do not present these as real testimonials in production.
 export const testimonials = {
   h2: 'What Our Clients Say',
   credibility:
     'Medina Services has delivered grounds maintenance, property repairs, and renovation work for HOAs, residential clients, and commercial properties throughout Northern Virginia. Our work speaks for itself — and our clients keep coming back.',
-  placeholderQuote:
-    'The team at Medina Services is professional, fast, and easy to work with. Their bilingual communication meant nothing was lost in translation between our staff and their crews. Everything was done right the first time.',
-  placeholderAttribution: 'Operations Director, Government Facility',
   isPlaceholder: true,
+  quotes: [
+    {
+      quote:
+        'They show up when they say they will, and the grounds always look sharp. Having one contractor handle landscaping and repairs has simplified our vendor management.',
+      attribution: 'Facilities Manager, Commercial Property',
+    },
+    {
+      quote:
+        'Communication was clear from the estimate through completion, and every visit was documented. An easy recommendation to our board.',
+      attribution: 'Board Member, Residential HOA',
+    },
+    {
+      quote:
+        'Bilingual crews and direct owner involvement meant nothing was lost between our staff and theirs. Done right the first time.',
+      attribution: 'Operations Director, Government Facility',
+    },
+  ],
 };
 
 // S10 — CONTACT
