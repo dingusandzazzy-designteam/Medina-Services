@@ -1285,29 +1285,44 @@ h3 {
   }
 }
 
-/* Who We Serve — audience segment list under a service line */
+/* Who We Serve — highlighted audience-segment panel under a service line */
 .svc__serve {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
+  background: var(--green-tint);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
 }
 .svc__serve-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gray-dark);
-  margin-bottom: var(--space-2);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: var(--space-3);
 }
 .svc__serve-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 var(--space-5);
   list-style: none;
   padding: 0;
-  border-top: var(--border);
 }
 .svc__serve-list li {
-  padding: 0.75rem var(--space-3) 0.75rem 0;
-  border-bottom: var(--border);
-  font-size: var(--fs-small);
-  color: var(--text);
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.65rem;
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--navy);
+  border-bottom: 1px solid rgba(0, 31, 77, 0.12);
+}
+.svc__serve-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 9px;
+  height: 9px;
+  background: var(--green);
+  transform: rotate(45deg);
 }
 
 /* Government contracting credentials grid (About) */
@@ -1426,6 +1441,92 @@ h3 {
   margin-top: var(--space-2);
   font-size: var(--fs-small);
   color: var(--gray-dark);
+}
+.ba__trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+}
+.ba__trigger:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+/* the inline preview is static; the draggable handle lives in the modal */
+.ba__trigger .ba__handle {
+  display: none;
+}
+.ba__hint {
+  position: absolute;
+  bottom: var(--space-2);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: rgba(0, 31, 77, 0.85);
+  pointer-events: none;
+  transition: background var(--dur-base) var(--ease-editorial);
+}
+.ba__trigger:hover .ba__hint,
+.ba__trigger:focus-visible .ba__hint {
+  background: var(--navy);
+}
+/* Modal */
+.ba__dialog {
+  width: min(90vw, 900px);
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto; /* center in the viewport */
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+.ba__dialog::backdrop {
+  background: rgba(0, 12, 30, 0.82);
+}
+.ba__dialog-inner {
+  position: relative;
+  background: var(--navy);
+  padding: 3rem clamp(0.75rem, 2vw, 1.25rem) clamp(0.75rem, 2vw, 1.25rem);
+}
+.ba__dialog .ba__stage {
+  aspect-ratio: 4 / 3;
+  max-height: 72vh;
+}
+.ba__dialog-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+.ba__dialog-close:focus-visible {
+  outline: 2px solid var(--blue-light);
+  outline-offset: 2px;
+}
+.ba__dialog-caption {
+  margin-top: var(--space-2);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--fs-small);
 }
 
 /* --- Zone 3: CTA block --- */
