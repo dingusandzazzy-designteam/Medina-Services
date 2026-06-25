@@ -1,26 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Logo from './Logo';
+import SectionLink from './SectionLink';
 import { nav } from '@/lib/content';
 import { Chevron, Menu, Close } from '@/lib/icons';
-
-function NavLink({ href, label }: { href: string; label: string }) {
-  const isHash = href.startsWith('#');
-  if (isHash) {
-    return (
-      <a className="nav__link" href={href}>
-        {label}
-      </a>
-    );
-  }
-  return (
-    <Link className="nav__link" href={href}>
-      {label}
-    </Link>
-  );
-}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -33,6 +17,8 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`.trim()}>
       <div className="container container-wide nav__inner">
@@ -43,35 +29,37 @@ export default function Nav() {
             {nav.links.map((link) =>
               link.children ? (
                 <li className="nav__group" key={link.label}>
-                  <a className="nav__link" href={link.href}>
+                  <SectionLink className="nav__link" href={link.href}>
                     {link.label}
                     <Chevron width={16} height={16} style={{ display: 'inline', verticalAlign: 'middle' }} />
-                  </a>
+                  </SectionLink>
                   <div className="nav__dropdown">
                     {link.children.map((child) => (
-                      <a key={child.href} href={child.href} onClick={() => setOpen(false)}>
+                      <SectionLink key={child.href} href={child.href} onClick={closeMenu}>
                         {child.label}
-                      </a>
+                      </SectionLink>
                     ))}
                   </div>
                 </li>
               ) : (
-                <li key={link.label} onClick={() => setOpen(false)}>
-                  <NavLink href={link.href} label={link.label} />
+                <li key={link.label} onClick={closeMenu}>
+                  <SectionLink className="nav__link" href={link.href}>
+                    {link.label}
+                  </SectionLink>
                 </li>
               )
             )}
             <li className="nav__cta-mobile">
-              <a className="btn btn--primary" href={nav.cta.href} onClick={() => setOpen(false)}>
+              <SectionLink className="btn btn--primary" href={nav.cta.href} onClick={closeMenu}>
                 {nav.cta.label}
-              </a>
+              </SectionLink>
             </li>
           </ul>
         </nav>
 
-        <a className="btn btn--primary nav__cta-desktop" href={nav.cta.href}>
+        <SectionLink className="btn btn--primary nav__cta-desktop" href={nav.cta.href}>
           {nav.cta.label}
-        </a>
+        </SectionLink>
 
         <button
           className="nav__toggle"

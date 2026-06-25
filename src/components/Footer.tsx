@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Logo from './Logo';
+import SectionLink from './SectionLink';
 import { company, nav } from '@/lib/content';
 
 export default function Footer() {
@@ -15,17 +15,11 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Explore</h4>
-            {nav.links.map((l) =>
-              l.href.startsWith('#') ? (
-                <a key={l.label} href={l.href}>
-                  {l.label}
-                </a>
-              ) : (
-                <Link key={l.label} href={l.href}>
-                  {l.label}
-                </Link>
-              )
-            )}
+            {nav.links.map((l) => (
+              <SectionLink key={l.label} href={l.href}>
+                {l.label}
+              </SectionLink>
+            ))}
           </div>
 
           <div className="footer__col">
