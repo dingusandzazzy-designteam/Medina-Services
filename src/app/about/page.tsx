@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Reveal from '@/components/Reveal';
 import Button from '@/components/Button';
 import SlotImage from '@/components/SlotImage';
-import TrustBar from '@/components/sections/TrustBar';
 import { about } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -22,7 +21,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TrustBar />
+      <section className="section section--alt" aria-labelledby="creds-h">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">Government Contracting</span>
+            <h2 className="h2" id="creds-h">Credentials &amp; registrations</h2>
+            <p>Registered, licensed, and contract-ready for commercial and government work.</p>
+          </div>
+          <ul className="creds">
+            <li className="creds__item">
+              <span className="creds__label">Virginia Class A License</span>
+              <span className="creds__val">#2705196283</span>
+            </li>
+            <li className="creds__item">
+              <span className="creds__label">Unique Entity ID (UEI)</span>
+              <span className="creds__val">LXG1KCA49SG1</span>
+            </li>
+            <li className="creds__item">
+              <span className="creds__label">CAGE Code</span>
+              <span className="creds__val">88GC1</span>
+            </li>
+            <li className="creds__item">
+              <span className="creds__label">Business Status</span>
+              <span className="creds__val">Small, Minority-Owned Business</span>
+            </li>
+            <li className="creds__item">
+              <span className="creds__label">Certifications</span>
+              <span className="creds__val">8(a) &amp; SWaM — in progress</span>
+            </li>
+            <li className="creds__item">
+              <span className="creds__label">SAM.gov</span>
+              <span className="creds__val">Registered &amp; active</span>
+            </li>
+          </ul>
+          <div className="btn-row">
+            <a
+              className="btn btn--primary"
+              href="/Medina-Services-Capability-Statement.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Download Capability Statement (PDF)
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
@@ -35,7 +78,7 @@ export default function AboutPage() {
             <div className="svc__body">
               <span className="eyebrow">{about.storyHeading}</span>
               <Reveal as="h2" className="h2" index={1}>
-                The contractor your property deserves.
+                Keeping properties performing at their best.
               </Reveal>
               <div className="prose">
                 {about.story.map((p) => (

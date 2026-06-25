@@ -12,12 +12,14 @@ import Button from '@/components/Button';
 export default function StatementBand({
   lead,
   emphasis,
+  support,
   tone = 'navy',
   figure,
   cta,
 }: {
   lead: string;
   emphasis: string;
+  support?: string;
   tone?: 'navy' | 'green';
   figure?: string;
   cta?: { label: string; href: string };
@@ -33,6 +35,11 @@ export default function StatementBand({
           <Reveal as="p" variant="clip" className="statement__emphasis">
             {emphasis}
           </Reveal>
+          {support && (
+            <Reveal as="p" className="statement__support" index={1}>
+              {support}
+            </Reveal>
+          )}
           {cta && (
             <div className="statement__cta">
               <Button href={cta.href} variant="on-navy" withArrow>

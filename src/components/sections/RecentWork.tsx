@@ -29,7 +29,7 @@ export default function RecentWork() {
                 <span className="work-card__media">
                   <SlotImage
                     slot={item.slot}
-                    ratio="4 / 5"
+                    ratio="4 / 3"
                     sizes="(max-width: 560px) 100vw, (max-width: 960px) 50vw, 33vw"
                   />
                 </span>

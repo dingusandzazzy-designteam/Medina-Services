@@ -35,12 +35,13 @@ const MAP: Record<string, { src: string; alt: string }> = {
     src: '/images/about-story.png',
     alt: 'Finished craftsmanship and a well-kept property by Medina Services',
   },
-  'IMG-G1': { src: '/images/gallery-1.png', alt: 'Finished commercial landscape maintained by Medina Services' },
-  'IMG-G2': { src: '/images/gallery-2.png', alt: 'Exterior pressure washing and property improvement' },
-  'IMG-G3': { src: '/images/gallery-3.png', alt: 'Freshly painted interior wall and trim' },
-  'IMG-G4': { src: '/images/gallery-4.png', alt: 'Finished renovation detail and trim carpentry' },
-  'IMG-G5': { src: '/images/gallery-5.png', alt: 'Interior surface and drywall repair in progress by a Medina Services tradesperson' },
-  'IMG-G6': { src: '/images/gallery-6.png', alt: 'Seasonal grounds detailing at a Northern Virginia commercial property' },
+  // Recent Work — real client project photos
+  'IMG-G1': { src: '/images/after-landscaping-1.jpg', alt: 'Foundation plantings and shrub beds maintained at a Northern Virginia property' },
+  'IMG-G2': { src: '/images/work-patio.jpg', alt: 'A new stamped-concrete patio beside a screened porch' },
+  'IMG-G3': { src: '/images/work-painting.jpg', alt: 'A freshly painted interior room with new flooring and trim' },
+  'IMG-G4': { src: '/images/work-kitchen.jpg', alt: 'A completed kitchen renovation with new cabinetry, appliances, and flooring' },
+  'IMG-G5': { src: '/images/work-basement.jpg', alt: 'A finished basement with recessed lighting and new carpet' },
+  'IMG-G6': { src: '/images/work-garage.jpg', alt: 'A garage converted into finished living space with a new door, window, and siding' },
 };
 
 export default function SlotImage({

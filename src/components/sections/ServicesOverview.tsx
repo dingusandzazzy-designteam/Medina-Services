@@ -1,6 +1,6 @@
 import Reveal from '@/components/Reveal';
 import SlotImage from '@/components/SlotImage';
-import { Icon, type IconName, Chevron } from '@/lib/icons';
+import { Chevron } from '@/lib/icons';
 import { servicesOverview } from '@/lib/content';
 
 /** S3 — Services overview. Each card carries the index number + the same documentary
@@ -30,7 +30,8 @@ export default function ServicesOverview() {
                   </span>
                   <span className="svc-cell__head">
                     <span className="svc-cell__icon" aria-hidden="true">
-                      <Icon name={card.icon as IconName} />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`/icons/${card.icon}.png`} alt="" />
                     </span>
                     <h3 className="svc-cell__title">
                       {card.titleLines.map((line, n) => (

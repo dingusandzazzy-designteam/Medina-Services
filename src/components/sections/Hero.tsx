@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="container hero__inner">
         <Reveal as="p" className="eyebrow hero__eyebrow" index={0}>
-          Licensed · Minority-Owned · Owner-Accountable
+          Licensed &amp; Insured · Minority-Owned · Owner-Accountable
         </Reveal>
         <Reveal as="h1" className="hero__title" index={1}>
           {before}

@@ -80,8 +80,8 @@
   --dur-base: 320ms;
   --dur-slow: 560ms;
 
-  --nav-h: 116px;
-  --nav-h-scrolled: 76px;
+  --nav-h: 128px;
+  --nav-h-scrolled: 84px;
 }
 
 /* --- Reset / base --- */
@@ -328,6 +328,12 @@ h3 {
   width: 30px;
   height: 30px;
 }
+.svc-cell__icon img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+}
 .svc-cell__title {
   font-family: var(--font-serif), serif;
   font-weight: 500;
@@ -550,7 +556,7 @@ h3 {
   box-shadow: 0 1px 0 rgba(0, 31, 77, 0.06);
 }
 .nav--scrolled .logo__img {
-  height: 60px;
+  height: 68px;
 }
 @media (prefers-reduced-motion: reduce) {
   .nav,
@@ -686,7 +692,7 @@ h3 {
 }
 .logo__img {
   display: block;
-  height: 100px;
+  height: 112px;
   width: auto;
   aspect-ratio: 900 / 719;
   transition: height var(--dur-base) var(--ease-editorial);
@@ -814,6 +820,78 @@ h3 {
 /* =============================================================================
    STATEMENT BAND — "billboard" Cormorant moment (brand-guide taglines)
    ============================================================================= */
+/* --- Intro section (directly under hero): tagline + statement + credentials.
+   Replaces the former TrustBar marquee. --- */
+.intro {
+  background: var(--navy);
+  color: var(--white);
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+.intro__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .intro__inner {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vw, 3rem);
+  }
+}
+.intro__statement {
+  max-width: 60ch;
+}
+.intro__lead {
+  font-weight: 200;
+  font-size: clamp(1.1rem, 2.4vw, 1.75rem);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: var(--blue-light);
+}
+.intro__emphasis {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin-top: 0.08em;
+  max-width: 18ch;
+}
+.intro__support {
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 60ch;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+.intro__creds {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.intro__cred {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: clamp(0.8rem, 1.4vw, 1.1rem) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+.intro__cred-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--white);
+}
+.intro__cred-code {
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--blue-light);
+}
+
 .statement {
   position: relative;
   padding-block: clamp(4.5rem, 12vw, 11rem);
@@ -852,6 +930,14 @@ h3 {
   letter-spacing: -0.02em;
   margin-top: 0.1em;
   max-width: 16ch;
+}
+.statement__support {
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 56ch;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
 }
 .statement__inner {
   position: relative;
@@ -1197,6 +1283,149 @@ h3 {
     border-left: none;
     padding-left: 0;
   }
+}
+
+/* Who We Serve — audience segment list under a service line */
+.svc__serve {
+  margin-top: var(--space-4);
+}
+.svc__serve-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  margin-bottom: var(--space-2);
+}
+.svc__serve-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  list-style: none;
+  padding: 0;
+  border-top: var(--border);
+}
+.svc__serve-list li {
+  padding: 0.75rem var(--space-3) 0.75rem 0;
+  border-bottom: var(--border);
+  font-size: var(--fs-small);
+  color: var(--text);
+}
+
+/* Government contracting credentials grid (About) */
+.creds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0 var(--space-5);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+  border-top: var(--border);
+}
+.creds__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--space-3) 0;
+  border-bottom: var(--border);
+}
+.creds__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+.creds__val {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+/* Before & After comparison slider */
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+.ba {
+  margin: 0;
+}
+.ba__stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: var(--border);
+  background: var(--navy);
+  user-select: none;
+}
+.ba__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.ba__img--before {
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.ba__tag {
+  position: absolute;
+  top: var(--space-2);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(0, 31, 77, 0.82);
+  pointer-events: none;
+  z-index: 2;
+}
+.ba__tag--before {
+  left: var(--space-2);
+}
+.ba__tag--after {
+  right: var(--space-2);
+}
+.ba__range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 3;
+}
+.ba__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos, 50%);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--white);
+  pointer-events: none;
+  z-index: 2;
+}
+.ba__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.ba__range:focus-visible ~ .ba__divider .ba__handle {
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+.ba__caption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-small);
+  color: var(--gray-dark);
 }
 
 /* --- Zone 3: CTA block --- */

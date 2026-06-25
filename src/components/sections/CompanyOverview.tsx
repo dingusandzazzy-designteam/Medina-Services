@@ -14,7 +14,7 @@ export default function CompanyOverview() {
             <span className="eyebrow">Who We Are</span>
             <Reveal as="h2" variant="clip">
               <span id="company-h">
-                The Contractor Your Property <em>Deserves</em>
+                Keeping Properties Performing at Their <em>Best</em>.
               </span>
             </Reveal>
             <div className="prose">

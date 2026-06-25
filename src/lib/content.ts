@@ -20,10 +20,19 @@ export const company = {
 
 // S1 — HERO
 export const hero = {
-  h1: "Northern Virginia's Trusted Contractor for Grounds, Maintenance, and Construction",
-  sub: 'Delivering dependable grounds care, property repair, and full-scale renovations. Serving commercial, government, and residential clients since 2016.',
+  h1: "Northern Virginia's Trusted Contractor for Grounds Maintenance, Remodeling, Construction, and Property Maintenance & Repair",
+  sub: 'Delivering dependable grounds care, property maintenance & repair, and full-scale renovations. Serving commercial, government, and residential clients since 2016.',
   primaryCta: { label: 'Request a Free Estimate', href: '#estimate' },
   secondaryCta: { label: 'View Our Services', href: '#services' },
+};
+
+// S1.5 — HERO BANNER (Brand Guidelines p.19 Website direction:
+// primary tagline p.8 + strong hero statement p.13)
+export const heroBanner = {
+  lead: 'Quality Craftsmanship',
+  emphasis: 'Backed by People You Trust.',
+  support:
+    "We provide Northern Virginia's commercial and government clients with professional grounds, maintenance, and construction services, combining the proven capability of a licensed contractor with the honest reliability of a family business.",
 };
 
 // S2 — TRUST BAR / CREDENTIALS
@@ -46,7 +55,7 @@ export const servicesOverview = {
       image: 'IMG-02',
       title: 'Grounds Maintenance',
       titleLines: ['Grounds', 'Maintenance'],
-      body: 'Recurring commercial landscape management for HOAs, government facilities, and institutional campuses. We show up on schedule and keep your property looking its best every visit, every season.',
+      body: 'Comprehensive landscape and grounds management for commercial properties, government facilities, HOAs, and institutional campuses. Recurring, contract-based service with flexible scheduling.',
       href: '#grounds',
     },
     {
@@ -54,7 +63,7 @@ export const servicesOverview = {
       image: 'IMG-03',
       title: 'Property Maintenance & Repair',
       titleLines: ['Property Maintenance', '& Repair'],
-      body: 'Preventive and corrective maintenance that keeps commercial and government properties in top operating condition. Professional execution, responsive scheduling, and documented work completion.',
+      body: 'Preventive and corrective maintenance that keeps commercial and government properties in top operating condition. Responsive scheduling, professional execution, and documented work completion.',
       href: '#property',
     },
     {
@@ -62,14 +71,26 @@ export const servicesOverview = {
       image: 'IMG-04',
       title: 'Remodeling & Construction',
       titleLines: ['Remodeling', '& Construction'],
-      body: 'Full-scope interior renovation for commercial, institutional, and residential clients. Managed from concept to completion, with a Virginia Class A Licensed contractor overseeing every phase.',
+      body: 'Full-scope interior renovation and construction for commercial, institutional, and residential clients. Project-managed from concept to completion, with licensed oversight and documented past performance.',
       href: '#remodeling',
     },
   ],
 };
 
 // S4–S6 — SERVICE LINE DETAILS
-export const serviceDetails = [
+type ServiceDetail = {
+  id: string;
+  label: string;
+  image: string;
+  h2: string;
+  accent: string;
+  paragraphs: string[];
+  whoWeServe?: string[];
+  bullets: string[];
+  ctaLead: string;
+  ctas: { label: string; href: string }[];
+};
+export const serviceDetails: ServiceDetail[] = [
   {
     id: 'grounds',
     label: 'Grounds Maintenance',
@@ -78,7 +99,15 @@ export const serviceDetails = [
     accent: 'Landscape Management',
     paragraphs: [
       "Your property's exterior is the first thing clients, tenants, and inspectors see. Medina Services delivers consistent, professional grounds maintenance under a recurring service contract — so your outdoor spaces always reflect the standard your organization requires.",
-      'We serve HOAs, commercial office parks, government facilities, institutional campuses, and property management firms throughout Northern Virginia. Flexible scheduling, dependable crews, and direct owner accountability on every account.',
+      'Flexible scheduling, dependable crews, and direct owner accountability on every account.',
+    ],
+    whoWeServe: [
+      'Property Management Companies',
+      'HOAs & Condominium Associations',
+      'Office & Retail Properties',
+      'Medical & Professional Offices',
+      'Churches & Nonprofit Organizations',
+      'Municipal & Educational Facilities',
     ],
     bullets: [
       'Mowing, edging, and turf care',
@@ -131,7 +160,7 @@ export const serviceDetails = [
     accent: 'Renovation',
     paragraphs: [
       'Whether you’re renovating a commercial office, completing a government facility buildout, or remodeling a kitchen for a residential client, Medina Services brings the same standard of licensed craftsmanship and personal accountability to every project.',
-      'We manage each engagement from start to finish. That means one point of contact, clear timelines, and a Virginia Class A Licensed contractor with documented past performance on commercial and residential renovation work.',
+      'We manage each engagement from start to finish. That means one point of contact, clear timelines, and a Virginia Class A Licensed Contractor with documented past performance.',
     ],
     bullets: [
       'Kitchen remodeling',
@@ -160,19 +189,47 @@ export const recentWork = {
     'A look at the grounds, maintenance, and renovation work we deliver for commercial, government, and residential clients across Northern Virginia.',
   // 6 documentary gallery slots (4:5) — see prompts/homepage.md (IMG-G1…G6)
   items: [
-    { slot: 'IMG-G1', category: 'Grounds Maintenance', caption: 'Commercial landscape upkeep' },
-    { slot: 'IMG-G2', category: 'Property Maintenance & Repair', caption: 'Exterior cleaning & restoration' },
-    { slot: 'IMG-G3', category: 'Remodeling & Construction', caption: 'Interior painting & finishing' },
-    { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Finish carpentry & trim' },
-    { slot: 'IMG-G5', category: 'Property Maintenance & Repair', caption: 'Surface & drywall repair' },
-    { slot: 'IMG-G6', category: 'Grounds Maintenance', caption: 'Seasonal grounds detailing' },
+    { slot: 'IMG-G1', category: 'Grounds Maintenance', caption: 'Foundation plantings & shrub care' },
+    { slot: 'IMG-G2', category: 'Property Maintenance & Repair', caption: 'Stamped patio & exterior improvement' },
+    { slot: 'IMG-G3', category: 'Property Maintenance & Repair', caption: 'Interior painting & finishing' },
+    { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Kitchen renovation' },
+    { slot: 'IMG-G5', category: 'Remodeling & Construction', caption: 'Finished basement' },
+    { slot: 'IMG-G6', category: 'Remodeling & Construction', caption: 'Garage-to-living-space conversion' },
   ],
   cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };
 
+// Before & After — real landscaping project pairs (client-provided photos).
+export const beforeAfter = {
+  intro: 'Real grounds and landscaping projects across Northern Virginia. Drag the handle to see the difference.',
+  pairs: [
+    {
+      before: '/images/before-landscaping-1.jpg',
+      after: '/images/after-landscaping-1.jpg',
+      caption: 'Landscape renewal',
+      beforeAlt: 'Property grounds before Medina Services landscaping work',
+      afterAlt: 'The same grounds after Medina Services landscaping work',
+    },
+    {
+      before: '/images/before-landscaping-2.jpg',
+      after: '/images/after-landscaping-2.jpg',
+      caption: 'Grounds restoration',
+      beforeAlt: 'Overgrown property grounds before Medina Services service',
+      afterAlt: 'Restored, maintained property grounds after Medina Services service',
+    },
+    {
+      before: '/images/before-landscaping-3.jpg',
+      after: '/images/after-landscaping-3.jpg',
+      caption: 'Lawn and garden transformation',
+      beforeAlt: 'Lawn and garden beds before Medina Services landscaping',
+      afterAlt: 'Lawn and garden beds after Medina Services landscaping',
+    },
+  ],
+};
+
 // S7 — COMPANY OVERVIEW
 export const companyOverview = {
-  h2: 'The Contractor Your Property Deserves',
+  h2: 'Keeping Properties Performing at Their Best.',
   paragraphs: [
     'Medina Services, LLC is a Virginia Class A Licensed, minority-owned contracting firm serving commercial, government, and residential clients throughout Northern Virginia. Since 2016, we have delivered professional grounds maintenance, property repair, and full-scale renovations with the dependability and personal accountability that only a family-owned business can provide. By combining three service lines under a single contractor, we streamline your procurement process and eliminate the hassle of juggling multiple vendors.',
     'When you work with Medina Services, you work directly with our owner. No lost emails, no mid-project handoffs, no subcontracting surprises. Just honest work, done right.',
@@ -211,7 +268,7 @@ export const whyMedina = {
     },
     {
       title: 'Direct Owner Involvement',
-      body: 'When you work with us, you work with leadership. Our owner takes personal responsibility for every project we take on.',
+      body: 'When you work with us, you work directly with leadership. Our owner takes personal pride and full responsibility in every job we do.',
     },
     {
       title: 'Bilingual: English and Spanish',
@@ -220,6 +277,10 @@ export const whyMedina = {
     {
       title: 'Responsive Scheduling',
       body: 'We move when you need us to. Urgent requests are handled without the runaround.',
+    },
+    {
+      title: 'Family-Owned & Faith-Driven',
+      body: 'We operate with honesty, pride, and a long-term view — not just transactional thinking.',
     },
   ],
 };
@@ -268,11 +329,9 @@ export const contact = {
 // "HOAs, government facilities, institutional campuses, property management firms").
 // Not new claims — segmentation of who the copy already names.
 export const serves = [
+  'Residential',
   'Commercial',
   'Government',
-  'Institutional',
-  'HOA',
-  'Residential',
 ];
 
 // Brand statement taglines — verbatim from the brand guide (p7, p12, p14).
@@ -281,6 +340,9 @@ export const statements = {
   accountability: { lead: 'Professional Service,', emphasis: 'Personal Accountability.' },
   community: { lead: 'Contract-Ready.', emphasis: 'Community-Rooted.' },
   craftsmanship: { lead: 'Quality Craftsmanship', emphasis: 'Backed by People You Trust.' },
+  // Supporting tagline (p.8) — used on the mid-page green band so the primary
+  // craftsmanship tagline isn't duplicated (it now anchors the HeroIntro section).
+  propertyCare: { lead: 'Complete Property Care', emphasis: 'You Can Count On.' },
 };
 
 // ABOUT — "Our Story" is verbatim client-approved text from the brand guide (p2),
