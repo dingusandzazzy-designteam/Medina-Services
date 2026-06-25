@@ -57,7 +57,7 @@ export default function AboutPage() {
           <div className="btn-row">
             <a
               className="btn btn--primary"
-              href="/Medina-Services-Capability-Statement.pdf"
+              href="/Medina-Services-Government-Capability-Statement.pdf"
               target="_blank"
               rel="noopener"
             >
