@@ -217,7 +217,8 @@ export const recentWork = {
     { slot: 'IMG-G2', category: 'Remodeling & Construction', caption: 'Stamped concrete patio' },
     { slot: 'IMG-G3', category: 'Remodeling & Construction', caption: 'Basement cabinets, shelving & painting' },
     { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Kitchen renovation' },
-    { slot: 'IMG-G5', category: 'Remodeling & Construction', caption: 'Finished basement' },
+    // Held at 6 so the 3-up grid stays full. IMG-G5 (finished basement) is dropped —
+    // it overlaps with the basement cabinets/shelving card above.
     { slot: 'IMG-G6', category: 'Remodeling & Construction', caption: 'Garage-to-living-space conversion' },
   ],
   cta: { label: 'Request a Free Estimate', href: '#estimate' },

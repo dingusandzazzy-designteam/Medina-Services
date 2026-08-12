@@ -867,6 +867,7 @@ p[data-reveal='clip'] {
   letter-spacing: -0.02em;
   margin-top: 0.08em;
   max-width: 18ch;
+  text-wrap: balance;
 }
 .intro__support {
   margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -940,6 +941,8 @@ p[data-reveal='clip'] {
   letter-spacing: -0.02em;
   margin-top: 0.1em;
   max-width: 16ch;
+  /* Even lines instead of a one-word widow ("You Can Count / On.") */
+  text-wrap: balance;
 }
 .statement__support {
   margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -1583,13 +1586,6 @@ p[data-reveal='clip'] {
 }
 .gallery__item {
   list-style: none;
-}
-/* An item count that leaves a single card alone on the last row (7 in a 3-up grid)
-   reads as a mistake — center the orphan under the row above. */
-@media (min-width: 961px) {
-  .gallery__item:last-child:nth-child(3n + 1) {
-    grid-column: 2;
-  }
 }
 .work-card {
   display: flex;
