@@ -46,8 +46,12 @@ export default function AboutPage() {
               <span className="creds__val">Small, Minority-Owned Business</span>
             </li>
             <li className="creds__item">
+              <span className="creds__label">Virginia SWaM</span>
+              <span className="creds__val">Certified — #844821</span>
+            </li>
+            <li className="creds__item">
               <span className="creds__label">Certifications</span>
-              <span className="creds__val">8(a) &amp; SWaM — in progress</span>
+              <span className="creds__val">8(a) — in progress</span>
             </li>
             <li className="creds__item">
               <span className="creds__label">SAM.gov</span>

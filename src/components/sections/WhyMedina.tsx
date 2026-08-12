@@ -14,7 +14,7 @@ export default function WhyMedina() {
           <span className="eyebrow">{whyMedina.label}</span>
           <Reveal as="h2" className="display-h">
             <span id="why-h">
-              Built for Commercial and <em>Government</em> Clients
+              Built for Residential, Commercial &amp; <em>Government</em> Clients
             </span>
           </Reveal>
           <Reveal as="p" className="lead" index={1}>

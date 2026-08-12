@@ -464,6 +464,16 @@ h3 {
 [data-reveal='clip'].is-visible {
   clip-path: inset(0 0 0 0);
 }
+/* The wipe clips exactly at the border box, so descenders (g, y, p) on tight
+   display line-heights get shaved — e.g. the "g" in "Performing". Pad the box by
+   the descender depth and pull the layout back so spacing is unchanged. */
+h1[data-reveal='clip'],
+h2[data-reveal='clip'],
+h3[data-reveal='clip'],
+p[data-reveal='clip'] {
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+}
 
 .parallax-img {
   will-change: transform;
@@ -1574,6 +1584,13 @@ h3 {
 .gallery__item {
   list-style: none;
 }
+/* An item count that leaves a single card alone on the last row (7 in a 3-up grid)
+   reads as a mistake — center the orphan under the row above. */
+@media (min-width: 961px) {
+  .gallery__item:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
 .work-card {
   display: flex;
   flex-direction: column;
@@ -1675,7 +1692,8 @@ h3 {
   line-height: 1.08;
   letter-spacing: -0.015em;
   text-wrap: balance;
-  margin-bottom: var(--space-4);
+  /* -0.22em offsets the descender padding added by the clip-reveal rule above */
+  margin-bottom: calc(var(--space-4) - 0.22em);
 }
 .company h2 em {
   font-style: italic;

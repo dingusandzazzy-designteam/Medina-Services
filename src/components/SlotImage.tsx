@@ -19,9 +19,10 @@ const MAP: Record<string, { src: string; alt: string }> = {
     src: '/images/property.png',
     alt: 'A Medina Services tradesperson performing professional property repair',
   },
+  // Early-stage construction (client review: show the build phase, not a finished remodel)
   'IMG-04': {
-    src: '/images/remodeling.png',
-    alt: 'Interior renovation and finish carpentry by a licensed Medina Services contractor',
+    src: '/images/construction-early.jpg',
+    alt: 'Framing and insulation in progress on a Medina Services construction project',
   },
   'IMG-05': {
     src: '/images/about-us.jpeg',
@@ -37,11 +38,12 @@ const MAP: Record<string, { src: string; alt: string }> = {
   },
   // Recent Work — real client project photos
   'IMG-G1': { src: '/images/after-landscaping-1.jpg', alt: 'Foundation plantings and shrub beds maintained at a Northern Virginia property' },
-  'IMG-G2': { src: '/images/work-patio.jpg', alt: 'A new stamped-concrete patio beside a screened porch' },
-  'IMG-G3': { src: '/images/work-painting.jpg', alt: 'A freshly painted interior room with new flooring and trim' },
+  'IMG-G2': { src: '/images/work-patio.jpg', alt: 'A new stamped-concrete patio built alongside the house' },
+  'IMG-G3': { src: '/images/work-painting.jpg', alt: 'A finished basement room with new cabinets, countertop, paint, and flooring' },
   'IMG-G4': { src: '/images/work-kitchen.jpg', alt: 'A completed kitchen renovation with new cabinetry, appliances, and flooring' },
   'IMG-G5': { src: '/images/work-basement.jpg', alt: 'A finished basement with recessed lighting and new carpet' },
   'IMG-G6': { src: '/images/work-garage.jpg', alt: 'A garage converted into finished living space with a new door, window, and siding' },
+  'IMG-G7': { src: '/images/work-porch.jpg', alt: 'A newly built screened-in porch addition opening onto a stamped-concrete patio' },
 };
 
 export default function SlotImage({

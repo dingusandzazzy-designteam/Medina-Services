@@ -2,7 +2,7 @@ import Reveal from '@/components/Reveal';
 import BeforeAfter from '@/components/BeforeAfter';
 import { beforeAfter } from '@/lib/content';
 
-/** Before & After — interactive comparison sliders for real landscaping project pairs. */
+/** Before & After — interactive comparison sliders for real project pairs. */
 export default function BeforeAfterShowcase() {
   return (
     <section className="section section--alt" id="before-after" aria-labelledby="ba-h">

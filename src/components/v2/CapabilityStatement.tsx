@@ -10,7 +10,8 @@ const cells: { k: string; v: string }[] = [
   { k: 'SAM.gov UEI', v: 'LXG1KCA49SG1' },
   { k: 'CAGE Code', v: '88GC1' },
   { k: 'Business Status', v: 'Minority-Owned Small Business' },
-  { k: 'Certifications', v: '8(a) & SWaM — In Progress' },
+  { k: 'Virginia SWaM', v: 'Certified · #844821' },
+  { k: 'Certifications', v: '8(a) — In Progress' },
   { k: 'In Operation Since', v: String(company.since) },
 ];
 

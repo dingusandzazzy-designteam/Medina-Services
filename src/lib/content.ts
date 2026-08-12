@@ -32,7 +32,7 @@ export const heroBanner = {
   lead: 'Quality Craftsmanship',
   emphasis: 'Backed by People You Trust.',
   support:
-    "We provide Northern Virginia's commercial and government clients with professional grounds, maintenance, and construction services, combining the proven capability of a licensed contractor with the honest reliability of a family business.",
+    'We provide Northern Virginia’s residential, commercial, and government clients with professional grounds maintenance, property repair, and construction services combining the proven capability of a licensed contractor with the honest reliability and personal accountability of a family-owned business.',
 };
 
 // S2 — TRUST BAR / CREDENTIALS
@@ -40,7 +40,8 @@ export const credentials: { label: string; code?: string }[] = [
   { label: 'Virginia Class A Licensed',        code: '#2705196283' },
   { label: 'SAM.gov Registered',               code: 'UEI: LXG1KCA49SG1 · CAGE: 88GC1' },
   { label: 'Minority-Owned Small Business' },
-  { label: '8(a) & SWaM Certification',        code: 'In Progress' },
+  { label: 'Virginia SWaM Certified',          code: '#844821' },
+  { label: '8(a) Certification',               code: 'In Progress' },
   { label: 'Northern Virginia',                code: 'Since 2016' },
 ];
 
@@ -48,14 +49,14 @@ export const credentials: { label: string; code?: string }[] = [
 export const servicesOverview = {
   h2: 'What We Do',
   intro:
-    'From keeping the grounds pristine to managing a full commercial renovation, we take care of your entire property. By providing three distinct service lines through a single licensed contractor, we eliminate the runaround of managing multiple vendors.',
+    'From routine repairs and property maintenance to grounds care and full-scale renovations, we take care of your entire property. By providing three distinct service lines through a single licensed contractor, Medina Services eliminates the runaround of managing multiple vendors giving you one trusted partner for the ongoing maintenance, repairs, improvements, and construction your property needs.',
   cards: [
     {
       icon: 'tree',
       image: 'IMG-02',
       title: 'Grounds Maintenance',
       titleLines: ['Grounds', 'Maintenance'],
-      body: 'Comprehensive landscape and grounds management for commercial properties, government facilities, HOAs, and institutional campuses. Recurring, contract-based service with flexible scheduling.',
+      body: 'Comprehensive landscape and grounds management for commercial, government, and residential properties. From recurring grounds maintenance to seasonal services and property upkeep, we provide reliable, contract-based solutions tailored to the needs of each property.',
       href: '#grounds',
     },
     {
@@ -63,7 +64,7 @@ export const servicesOverview = {
       image: 'IMG-03',
       title: 'Property Maintenance & Repair',
       titleLines: ['Property Maintenance', '& Repair'],
-      body: 'Preventive and corrective maintenance that keeps commercial and government properties in top operating condition. Responsive scheduling, professional execution, and documented work completion.',
+      body: 'Reliable repair and maintenance services for residential, commercial, and government properties. From routine maintenance and minor repairs to larger property improvements, Medina Services provides responsive, dependable solutions to keep your property safe, functional, and well maintained.',
       href: '#property',
     },
     {
@@ -71,7 +72,7 @@ export const servicesOverview = {
       image: 'IMG-04',
       title: 'Remodeling & Construction',
       titleLines: ['Remodeling', '& Construction'],
-      body: 'Full-scope interior renovation and construction for commercial, institutional, and residential clients. Project-managed from concept to completion, with licensed oversight and documented past performance.',
+      body: 'Full-scope renovation, remodeling, and construction services for residential, commercial, and government clients. From individual improvements to complete renovations, we manage projects from concept to completion with experienced oversight, quality workmanship, and a commitment to getting the job done right.',
       href: '#remodeling',
     },
   ],
@@ -95,11 +96,11 @@ export const serviceDetails: ServiceDetail[] = [
     id: 'grounds',
     label: 'Grounds Maintenance',
     image: 'IMG-02',
-    h2: 'Complete Landscape Management for Commercial Properties and Government Facilities',
+    h2: 'Complete Landscape Management for Residential, Commercial & Government Properties',
     accent: 'Landscape Management',
     paragraphs: [
-      "Your property's exterior is the first thing clients, tenants, and inspectors see. Medina Services delivers consistent, professional grounds maintenance under a recurring service contract — so your outdoor spaces always reflect the standard your organization requires.",
-      'Flexible scheduling, dependable crews, and direct owner accountability on every account.',
+      'Your property’s exterior makes a lasting first impression. Whether it’s a home, commercial property, or government facility, Medina Services delivers consistent, professional grounds maintenance tailored to the needs of your property. From routine upkeep to recurring service contracts, we keep outdoor spaces clean, well-maintained, and looking their best year-round.',
+      'Flexible scheduling, dependable crews, and direct owner accountability on every project and account.',
     ],
     whoWeServe: [
       'Property Management Companies',
@@ -110,15 +111,20 @@ export const serviceDetails: ServiceDetail[] = [
       'Municipal & Educational Facilities',
     ],
     bullets: [
-      'Mowing, edging, and turf care',
-      'Fertilization and weed control',
-      'Shrub and tree trimming',
-      'Mulching and seasonal color',
-      'Seasonal cleanup (spring and fall)',
-      'Debris removal',
-      'Irrigation system maintenance',
-      'Pressure washing',
-      'Exterior property improvements',
+      'Mowing, Edging & Turf Care',
+      'Fertilization & Weed Control',
+      'Aeration, Overseeding & Lawn Restoration',
+      'Tree, Shrub & Plant Installation & Maintenance',
+      'Pruning & Trimming',
+      'Mulching & Landscape Bed Maintenance',
+      'Landscape Installation & Enhancements',
+      'Spring & Fall Cleanups',
+      'Leaf & Debris Removal',
+      'Irrigation System Installation & Maintenance',
+      'Drainage & Erosion Control',
+      'Storm Cleanup & Grounds Restoration',
+      'Pressure Washing',
+      'Exterior Property Improvements',
     ],
     ctaLead: 'Ready to put your grounds on a reliable maintenance schedule?',
     ctas: [
@@ -133,18 +139,24 @@ export const serviceDetails: ServiceDetail[] = [
     h2: 'Responsive Maintenance Services That Keep Your Property Running Smoothly',
     accent: 'Running Smoothly',
     paragraphs: [
-      'Deferred maintenance costs more than staying ahead of it. Medina Services provides responsive, professional maintenance and repair services that keep your property safe, functional, and compliant without the delays and communication gaps that come with larger contractors.',
+      'Proactive maintenance protects your property and your budget. Medina Services provides responsive, professional maintenance and repair services that keep your property safe, functional, and compliant without the delays and communication gaps that come with larger contractors.',
       "Every job is documented. Every visit is completed to spec. And when urgent repairs come up, we move fast. That's what it means to work with a contractor who is personally invested in your property.",
     ],
     bullets: [
       'Drywall repair and installation',
       'Interior and exterior painting',
-      'Wall and surface repair',
-      'Masonry repair',
-      'General property repairs',
-      'Preventive maintenance programs',
-      'Pressure washing',
-      'Exterior repairs and improvements',
+      'Carpentry and trim repair',
+      'Door, frame, and hardware repair/replacement',
+      'Flooring repair and replacement',
+      'Ceiling and wall repairs',
+      'Masonry and concrete repair',
+      'Exterior siding and trim repair',
+      'Caulking, sealing, and weatherproofing',
+      'Minor plumbing and electrical repairs',
+      'Fixture and hardware installation/replacement',
+      'Pressure washing and exterior cleaning',
+      'Preventive and recurring maintenance programs',
+      'General property repairs and improvements',
     ],
     ctaLead: 'Let us take the maintenance burden off your plate.',
     ctas: [
@@ -163,14 +175,22 @@ export const serviceDetails: ServiceDetail[] = [
       'We manage each engagement from start to finish. That means one point of contact, clear timelines, and a Virginia Class A Licensed Contractor with documented past performance.',
     ],
     bullets: [
-      'Kitchen remodeling',
-      'Bathroom renovations',
-      'Basement finishing',
+      'Kitchen remodeling and renovations',
+      'Bathroom remodeling and renovations',
+      'Basement finishing and remodeling',
+      'Whole-home and interior renovations',
+      'Commercial buildouts and tenant improvements',
+      'Office and facility renovations',
+      'Framing, drywall, and interior construction',
       'Flooring installation and finishing',
-      'Trim carpentry and finish work',
-      'Fixture installation',
-      'Interior painting',
-      'Commercial space buildouts and tenant improvements',
+      'Doors, trim, and finish carpentry',
+      'Cabinetry and countertop installation',
+      'Fixture and finish installation',
+      'Interior and exterior painting',
+      'Accessibility and ADA improvements',
+      'Structural modifications and alterations',
+      'Demolition and site preparation',
+      'Exterior renovations and improvements',
     ],
     ctaLead: "Have a project in mind? Let's talk.",
     ctas: [
@@ -187,11 +207,15 @@ export const recentWork = {
   h2: 'Recent Work',
   intro:
     'A look at the grounds, maintenance, and renovation work we deliver for commercial, government, and residential clients across Northern Virginia.',
-  // 6 documentary gallery slots (4:5) — see prompts/homepage.md (IMG-G1…G6)
+  // Documentary gallery slots (4:3) — see prompts/homepage.md (IMG-G1…G7).
+  // Categories per client review: the screened-in porch and the stamped patio are new
+  // construction (split into two projects), and the basement cabinet/shelving/painting
+  // job is remodeling — not property maintenance.
   items: [
     { slot: 'IMG-G1', category: 'Grounds Maintenance', caption: 'Foundation plantings & shrub care' },
-    { slot: 'IMG-G2', category: 'Property Maintenance & Repair', caption: 'Stamped patio & exterior improvement' },
-    { slot: 'IMG-G3', category: 'Property Maintenance & Repair', caption: 'Interior painting & finishing' },
+    { slot: 'IMG-G7', category: 'Remodeling & Construction', caption: 'Screened-in porch addition' },
+    { slot: 'IMG-G2', category: 'Remodeling & Construction', caption: 'Stamped concrete patio' },
+    { slot: 'IMG-G3', category: 'Remodeling & Construction', caption: 'Basement cabinets, shelving & painting' },
     { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Kitchen renovation' },
     { slot: 'IMG-G5', category: 'Remodeling & Construction', caption: 'Finished basement' },
     { slot: 'IMG-G6', category: 'Remodeling & Construction', caption: 'Garage-to-living-space conversion' },
@@ -199,30 +223,52 @@ export const recentWork = {
   cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };
 
-// Before & After — real landscaping project pairs (client-provided photos).
+// Before & After — a recent deck rebuild (client-provided photos, Aug 2026).
 export const beforeAfter = {
-  intro: 'Real grounds and landscaping projects across Northern Virginia. Drag the handle to see the difference.',
+  intro:
+    'A recent deck rebuild in Northern Virginia. Click any photo to open the slider and compare the before and after.',
   pairs: [
     {
-      before: '/images/before-landscaping-1.jpg',
-      after: '/images/after-landscaping-1.jpg',
-      caption: 'Landscape renewal',
-      beforeAlt: 'Property grounds before Medina Services landscaping work',
-      afterAlt: 'The same grounds after Medina Services landscaping work',
+      before: '/images/before-deck-1.jpg',
+      after: '/images/after-deck-1.jpg',
+      caption: 'Rear deck, seen from the yard',
+      beforeAlt: 'The back of a townhouse with its original wood deck, stained brown and weathered',
+      afterAlt: 'The same townhouse with the deck rebuilt, now with new boards and white railing',
     },
     {
-      before: '/images/before-landscaping-2.jpg',
-      after: '/images/after-landscaping-2.jpg',
-      caption: 'Grounds restoration',
-      beforeAlt: 'Overgrown property grounds before Medina Services service',
-      afterAlt: 'Restored, maintained property grounds after Medina Services service',
+      before: '/images/before-deck-2.jpg',
+      after: '/images/after-deck-2.jpg',
+      caption: 'Back deck and railing',
+      beforeAlt: 'Standing on the old back deck, looking across worn boards and a brown wood railing toward the yard',
+      afterAlt: 'The same view after the rebuild, with new boards underfoot and white railing',
     },
     {
-      before: '/images/before-landscaping-3.jpg',
-      after: '/images/after-landscaping-3.jpg',
-      caption: 'Lawn and garden transformation',
-      beforeAlt: 'Lawn and garden beds before Medina Services landscaping',
-      afterAlt: 'Lawn and garden beds after Medina Services landscaping',
+      before: '/images/before-deck-3.jpg',
+      after: '/images/after-deck-3.jpg',
+      caption: 'Front deck, street side',
+      beforeAlt: 'The street-side deck before the rebuild, with faded boards and a brown wood railing',
+      afterAlt: 'The same street-side deck rebuilt with new boards and white railing',
+    },
+    {
+      before: '/images/before-deck-4.jpg',
+      after: '/images/after-deck-4.jpg',
+      caption: 'Rear deck and support framing',
+      beforeAlt: 'The rear deck before the rebuild, seen from behind the back fence',
+      afterAlt: 'The rebuilt rear deck with white railing and new support posts underneath',
+    },
+    {
+      before: '/images/before-deck-5.jpg',
+      after: '/images/after-deck-5.jpg',
+      caption: 'New boards and railing, back deck',
+      beforeAlt: 'Split, sun-faded boards and a brown railing on the back deck',
+      afterAlt: 'New boards and white railing in the same spot on the back deck',
+    },
+    {
+      before: '/images/before-deck-6.jpg',
+      after: '/images/after-deck-6.jpg',
+      caption: 'New boards and railing, front deck',
+      beforeAlt: 'Worn deck boards and brown railing on the front deck, with the street beyond',
+      afterAlt: 'The front deck after the rebuild, with new boards and white railing',
     },
   ],
 };
@@ -246,7 +292,7 @@ export const companyOverview = {
 // S8 — WHY MEDINA SERVICES
 export const whyMedina = {
   label: 'Why Medina Services',
-  h2: 'Built for Commercial and Government Clients',
+  h2: 'Built for Residential, Commercial & Government Clients',
   intro:
     'We bring the credentials, the licenses, and the work ethic to compete for serious contracts and the personal accountability to deliver on them.',
   blocks: [
@@ -255,12 +301,16 @@ export const whyMedina = {
       body: 'Verified qualifications to perform a full range of contracting work across trades. No subcontracting surprises, no unlicensed crews.',
     },
     {
+      title: 'Virginia SWaM Certified — #844821',
+      body: 'Proudly recognized by the Commonwealth of Virginia as a certified Small Minority-owned business.',
+    },
+    {
       title: 'Minority-Owned Business',
-      body: 'Helps clients meet diversity spending goals and qualifies us for government contracts reserved for small, minority-owned businesses. 8(a) and SWaM certifications in progress.',
+      body: 'Helps clients meet diversity spending goals and qualifies us for government contracts reserved for small, minority-owned businesses. 8(a) certification in progress.',
     },
     {
       title: 'SAM.gov Registered — UEI: LXG1KCA49SG1 | CAGE: 88GC1',
-      body: 'Fully registered and ready for federal and state government contracting awards. All NAICS codes on file.',
+      body: 'Fully registered and ready for federal government contracting awards. All NAICS codes on file.',
     },
     {
       title: 'Multi-Trade Capability',
