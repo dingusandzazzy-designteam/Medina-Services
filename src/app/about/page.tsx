@@ -13,14 +13,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <span className="eyebrow">{about.eyebrow}</span>
-          <h1>{about.h1}</h1>
-          <p>{about.intro}</p>
-        </div>
-      </section>
-
       <section className="section section--alt" aria-labelledby="creds-h">
         <div className="container">
           <div className="section-head">
@@ -81,7 +73,9 @@ export default function AboutPage() {
             </div>
             <div className="svc__body">
               <span className="eyebrow">{about.storyHeading}</span>
-              <Reveal as="h2" className="h2" index={1}>
+              {/* Page h1: the About hero was removed at the client's request (2026-08-13),
+                  so the story heading carries the document title. Styled as .h2 — no visual change. */}
+              <Reveal as="h1" className="h2" index={1}>
                 Keeping properties performing at their best.
               </Reveal>
               <div className="prose">

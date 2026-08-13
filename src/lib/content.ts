@@ -287,7 +287,7 @@ export const companyOverview = {
     { value: 'Class A', label: 'Virginia Licensed Contractor' },
     { value: 'Owner-Led', label: 'On every project' },
   ],
-  cta: { label: 'Learn Our Story', href: '/about' },
+  cta: { label: 'Credentials & Registrations', href: '/about' },
 };
 
 // S8 — WHY MEDINA SERVICES
