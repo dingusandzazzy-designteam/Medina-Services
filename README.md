@@ -46,14 +46,28 @@ already-built deployment.
 
 | Variable | Purpose |
 |---|---|
-| `RESEND_API_KEY` | Resend API key with sending access. Server-side only — never prefix with `NEXT_PUBLIC_`. |
-| `LEAD_TO_EMAIL` | Where form submissions land. Currently `info@medinaservices.us`. |
-| `LEAD_FROM_EMAIL` | Sender, e.g. `Medina Services Website <leads@medinaservices.us>`. The domain must be verified in Resend. |
+| `RESEND_API_KEY` | Resend API key. Server-side only — never prefix with `NEXT_PUBLIC_`. |
+| `LEAD_TO_EMAIL` | Where form submissions land. Currently `medinaservicesva@gmail.com`. |
+| `LEAD_FROM_EMAIL` | Sender. Currently `Medina Services Website <onboarding@resend.dev>`. |
 | `LEAD_CC_EMAIL` | Optional. Copies a second inbox. |
 | `LEAD_AUTOREPLY` | Optional. `true` also sends a confirmation to whoever submitted the form. |
 
-`src/.env.example` documents the same list. Copy it to `src/.env.local` for local work;
-that file is git-ignored.
+`src/.env.example` documents the same list, with the reasoning behind the two email
+values. Copy it to `src/.env.local` for local work; that file is git-ignored.
+
+**Why the sender is `onboarding@resend.dev` and not the company domain.** Sending as
+`@medinaservices.us` requires verifying the domain in Resend, which requires an MX record
+on a `send` subdomain. The domain's DNS sits on Namecheap with Private Email, and that
+panel will not add a subdomain MX without switching Mail Settings to "Custom MX" — which
+removes the records that let `info@medinaservices.us` receive mail. `onboarding@resend.dev`
+sends without any domain verification, but only to the Resend account owner's address,
+which is why leads currently go to the Gmail account. Reply-to is always the lead's own
+address, so replying reaches them directly either way.
+
+To move to the company domain later: finish verifying `medinaservices.us` in Resend — DKIM
+and the SPF TXT record are already published, only the `send` MX is missing — then point
+`LEAD_FROM_EMAIL` at `leads@medinaservices.us`, `LEAD_TO_EMAIL` at `info@medinaservices.us`,
+and redeploy. No code changes.
 
 ---
 
