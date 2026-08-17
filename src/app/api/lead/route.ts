@@ -192,12 +192,12 @@ export async function POST(request: Request) {
   if (!lead.name) fields.name = 'Please enter your name.';
   if (!lead.email) fields.email = 'Please enter your email.';
   else if (!EMAIL_RE.test(lead.email)) fields.email = 'Please enter a valid email.';
-  // An estimate needs a number to call and an address to quote; the general contact
-  // form asks for neither.
-  if (lead.source === 'estimate') {
-    if (!lead.phone) fields.phone = 'Please enter a phone number so we can reach you.';
-    if (!lead.address) fields.address = 'Please enter the property address.';
+  // The property address is required on both forms; the phone only on the estimate,
+  // where someone has to be called back to schedule a visit.
+  if (lead.source === 'estimate' && !lead.phone) {
+    fields.phone = 'Please enter a phone number so we can reach you.';
   }
+  if (!lead.address) fields.address = 'Please enter the property address.';
   if (!lead.message) fields.message = 'Please tell us a little about your needs.';
   if (Object.keys(fields).length > 0) {
     return NextResponse.json({ ok: false, error: 'validation', fields }, { status: 422 });

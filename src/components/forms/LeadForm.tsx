@@ -23,8 +23,9 @@ export default function LeadForm({ variant = 'estimate' }: { variant?: Variant }
     mountedAt.current = Date.now();
   }, []);
 
-  /** An estimate needs a number to call and an address to quote. The general contact
-   *  form asks for neither — it is an enquiry, not a job. */
+  /** The property address is required on both forms (client request, 2026-08-17).
+   *  The phone stays required only on the estimate, where someone has to be called
+   *  back to schedule a visit. */
   const estimate = variant === 'estimate';
 
   function validate(data: FormData): Errors {
@@ -38,7 +39,7 @@ export default function LeadForm({ variant = 'estimate' }: { variant?: Variant }
     if (!email) e.email = 'Please enter your email.';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = 'Please enter a valid email.';
     if (estimate && !phone) e.phone = 'Please enter a phone number so we can reach you.';
-    if (estimate && !address) e.address = 'Please enter the property address.';
+    if (!address) e.address = 'Please enter the property address.';
     if (!message) e.message = 'Please tell us a little about your needs.';
     return e;
   }
@@ -183,12 +184,7 @@ export default function LeadForm({ variant = 'estimate' }: { variant?: Variant }
 
       <div className="field" data-error={Boolean(errors.address)}>
         <label htmlFor="lf-address">
-          Property address{' '}
-          {estimate ? (
-            <span className="req" aria-hidden="true">*</span>
-          ) : (
-            <span className="field__hint">(optional)</span>
-          )}
+          Property address <span className="req" aria-hidden="true">*</span>
         </label>
         <input
           id="lf-address"
@@ -196,7 +192,7 @@ export default function LeadForm({ variant = 'estimate' }: { variant?: Variant }
           type="text"
           autoComplete="street-address"
           placeholder="Street, city, ZIP"
-          aria-required={estimate}
+          aria-required="true"
           aria-invalid={Boolean(errors.address)}
           aria-describedby="lf-address-err"
         />

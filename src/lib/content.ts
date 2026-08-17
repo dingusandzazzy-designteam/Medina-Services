@@ -223,40 +223,44 @@ export const recentWork = {
     { slot: 'IMG-G2', category: 'Remodeling & Construction', caption: 'Stamped concrete patio' },
     { slot: 'IMG-G3', category: 'Remodeling & Construction', caption: 'Basement cabinets, shelving & painting' },
     { slot: 'IMG-G4', category: 'Remodeling & Construction', caption: 'Kitchen renovation' },
-    // Held at 6 so the 3-up grid stays full. IMG-G5 (finished basement) is dropped —
-    // it overlaps with the basement cabinets/shelving card above.
     { slot: 'IMG-G6', category: 'Remodeling & Construction', caption: 'Garage-to-living-space conversion' },
+    // Added on the client's 2026-08-17 note: the basement finish photos she had sent
+    // were never on the site, and the bathroom job is the first — and so far only —
+    // Property Maintenance & Repair example in this section.
+    { slot: 'IMG-G5', category: 'Remodeling & Construction', caption: 'Basement finishing' },
+    { slot: 'IMG-G8', category: 'Property Maintenance & Repair', caption: 'Shower repair & retiling' },
   ],
   cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };
 
 // Before & After — client-provided project photos.
-// Per the 2026-08-16 review: the three grounds-maintenance pairs are back on the site,
-// alongside a single pair from the recent deck rebuild (the rear-deck view she picked).
+// Order is deliberate (client review 2026-08-17): the two remodeling pairs fill the top
+// row, landscaping and the deck sit underneath. The grid is two columns, so the sequence
+// here is what puts them on the right rows.
 export const beforeAfter = {
   intro:
-    'Grounds work and a recent deck rebuild in Northern Virginia. Click any photo to open the slider and compare the before and after.',
+    'Basement remodels, grounds work, and a deck rebuild in Northern Virginia. Click any photo to open the slider and compare the before and after.',
   pairs: [
+    {
+      before: '/images/before-basement-1.jpg',
+      after: '/images/after-basement-1.jpg',
+      caption: 'Basement framing to finished room',
+      beforeAlt: 'A basement wall stripped to the studs with foil insulation between the framing, an interior door already hung',
+      afterAlt: 'The same corner finished — painted walls, trim, laminate flooring and built-in shelving',
+    },
+    {
+      before: '/images/before-basement-2.jpg',
+      after: '/images/after-basement-2.jpg',
+      caption: 'Basement storage wall',
+      beforeAlt: 'An insulated basement wall under exposed floor joists, before any finishing work',
+      afterAlt: 'The same wall painted and fitted with a full run of white built-in shelving',
+    },
     {
       before: '/images/before-landscaping-1.jpg',
       after: '/images/after-landscaping-1.jpg',
       caption: 'Foundation beds, cleared and mulched',
       beforeAlt: 'A foundation planting bed swallowed by tall grass and weeds growing up through the shrubs',
       afterAlt: 'The same bed cleared and mulched, with the shrubs pruned level and flowering liriope along the front',
-    },
-    {
-      before: '/images/before-landscaping-2.jpg',
-      after: '/images/after-landscaping-2.jpg',
-      caption: 'Front entry beds',
-      beforeAlt: 'Shrubs at a front entrance grown past the porch wall, with lawn creeping over the bed',
-      afterAlt: 'The same entrance with the shrubs cut back and a freshly mulched bed edged against the lawn',
-    },
-    {
-      before: '/images/before-landscaping-3.jpg',
-      after: '/images/after-landscaping-3.jpg',
-      caption: 'Walkway beds and shrub pruning',
-      beforeAlt: 'Shrubs along a front walkway lost in overgrown grass, with no defined bed line',
-      afterAlt: 'The same walkway with the shrubs pruned to shape and the bed re-cut and mulched',
     },
     {
       before: '/images/before-deck-1.jpg',
