@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Medina Services, LLC — a Virginia Class A Licensed, family-owned and minority-owned contracting firm serving Northern Virginia since 2016. Owner-accountable, faith-led, craftsmanship-driven.',
+  // Resolves against metadataBase, so every host this is deployed to (preview URLs,
+  // *.vercel.app) points search engines at the real domain instead of competing with it.
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {

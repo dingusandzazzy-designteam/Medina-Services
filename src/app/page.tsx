@@ -10,6 +10,13 @@ import Testimonials from '@/components/sections/Testimonials';
 import ContactSection from '@/components/sections/ContactSection';
 import StatementBand from '@/components/StatementBand';
 import { statements } from '@/lib/content';
+import type { Metadata } from 'next';
+
+// Canonical resolves against metadataBase (https://medinaservices.us), so preview and
+// *.vercel.app hosts never compete with the real domain in search results.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function Home() {
   return (

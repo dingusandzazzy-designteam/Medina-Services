@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Contact Medina Services, LLC for grounds maintenance, property repair, and renovation across Northern Virginia. Call (571) 395-3927 or request a free estimate. We respond within one business day.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {
