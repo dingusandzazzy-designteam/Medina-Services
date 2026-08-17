@@ -3,6 +3,7 @@ import { Raleway, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 import { company } from '@/lib/content';
 
 // Raleway: 200 (large display headings only) · 300/400 (body+UI) · 600 (subheads/buttons)
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

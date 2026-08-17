@@ -627,6 +627,19 @@ p[data-reveal='clip'] {
   transition: opacity var(--dur-fast) var(--ease-standard),
     transform var(--dur-fast) var(--ease-standard);
 }
+/* Hover bridge. The panel opens 0.5rem below the trigger; without this the pointer
+   crosses that gap, leaves .nav__group, and the menu closes before any item can be
+   clicked (reported in the 2026-08-16 client review). The bridge is part of the panel,
+   so it is inert while the panel is closed (pointer-events: none) and spans its full
+   width once open. */
+.nav__dropdown::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 0.6rem;
+}
 .nav__group:hover .nav__dropdown,
 .nav__group:focus-within .nav__dropdown {
   opacity: 1;
@@ -688,6 +701,10 @@ p[data-reveal='clip'] {
     pointer-events: auto;
     border: none;
     padding-left: var(--space-2);
+  }
+  /* No gap to bridge in the stacked mobile menu */
+  .nav__dropdown::before {
+    display: none;
   }
   .nav__toggle {
     display: inline-flex;
@@ -1368,10 +1385,17 @@ p[data-reveal='clip'] {
 }
 
 /* Before & After comparison slider */
+/* Two across: with four pairs, auto-fit produced a 3 + 1 row and left the last card
+   stranded. Two columns also give each comparison more width to read at a glance. */
 .ba-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
+}
+@media (max-width: 700px) {
+  .ba-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .ba {
   margin: 0;
@@ -1668,13 +1692,20 @@ p[data-reveal='clip'] {
   aspect-ratio: 4 / 5;
 }
 @media (max-width: 900px) {
+  /* The source is a portrait photo. A short, wide band cropped it through the middle
+     and cut the subjects' heads off (client review 2026-08-16), so on small screens the
+     frame stands upright and the crop is anchored above centre. */
   .company__media {
-    min-height: clamp(280px, 72vw, 460px);
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
   .company__media > [data-reveal] {
     position: relative;
     inset: auto;
     height: 100%;
+  }
+  .company__media img {
+    object-position: 50% 20%;
   }
 }
 /* Ornament reads as a near-invisible dark green on navy → use light blue here */
@@ -2022,6 +2053,10 @@ p[data-reveal='clip'] {
 .field {
   display: grid;
   gap: 0.4rem;
+  /* Fields sit side by side and stretch to the tallest one. Without this, a field with
+     no error slot spreads its rows to fill and its control drifts out of line with the
+     one beside it. */
+  align-content: start;
 }
 .field label {
   font-size: var(--fs-small);
@@ -2032,9 +2067,17 @@ p[data-reveal='clip'] {
   color: var(--accent);
   font-weight: 600;
 }
+.field__hint {
+  font-weight: 300;
+  color: var(--text-muted);
+}
 .field input,
 .field textarea,
 .field select {
+  /* A <select> sizes itself to its longest option unless told otherwise, which pushed
+     it past its grid column. */
+  width: 100%;
+  min-width: 0;
   font: inherit;
   font-size: var(--fs-small);
   padding: 0.85em 1em;
@@ -2075,9 +2118,19 @@ p[data-reveal='clip'] {
   color: var(--error);
   border-color: var(--error);
 }
+/* Honeypot wrapper — off-screen rather than display:none, which some bots skip. */
+.form__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+/* minmax(0, 1fr): plain 1fr lets the <select> push past its share on its longest
+   option text, which left the phone field visibly narrower than its neighbour. */
 .form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
 }
 @media (max-width: 560px) {
@@ -2180,4 +2233,41 @@ p[data-reveal='clip'] {
   position: relative;
   top: calc(-1 * var(--nav-h));
   visibility: hidden;
+}
+
+/* --- Back to top --- */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--navy);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard),
+    background var(--dur-fast) var(--ease-standard);
+}
+.to-top.is-shown {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.to-top:hover {
+  background: var(--green);
+  border-color: var(--green);
+}
+@media (prefers-reduced-motion: reduce) {
+  .to-top {
+    transition: none;
+  }
 }

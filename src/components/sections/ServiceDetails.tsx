@@ -37,6 +37,7 @@ export default function ServiceDetails() {
                     <SlotImage
                       slot={svc.image}
                       sizes="(max-width: 900px) 100vw, 50vw"
+                      objectPosition={svc.imagePosition}
                     />
                   </Reveal>
                 </div>
@@ -68,18 +69,6 @@ export default function ServiceDetails() {
                   <li key={b}>{b}</li>
                 ))}
               </ul>
-
-              {/* Who We Serve — audience segments (where provided) */}
-              {svc.whoWeServe && (
-                <div className="svc__serve">
-                  <h3 className="svc__serve-label">Who We Serve</h3>
-                  <ul className="svc__serve-list">
-                    {svc.whoWeServe.map((w) => (
-                      <li key={w}>{w}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
 
               {/* Zone 3: CTA */}
               <div className="svc__cta">

@@ -19,10 +19,12 @@ const MAP: Record<string, { src: string; alt: string }> = {
     src: '/images/property.png',
     alt: 'A Medina Services tradesperson performing professional property repair',
   },
-  // Early-stage construction (client review: show the build phase, not a finished remodel)
+  // Remodeling & Construction. Client review 2026-08-16 asked for a crew-on-site photo
+  // in place of the framing shot; licensed via Adobe Stock (#167682966).
+  // `construction-early.jpg` is kept on disk for an easy revert.
   'IMG-04': {
-    src: '/images/construction-early.jpg',
-    alt: 'Framing and insulation in progress on a Medina Services construction project',
+    src: '/images/construction-team.jpg',
+    alt: 'A construction crew in hard hats and safety vests reviewing project plans on site',
   },
   'IMG-05': {
     src: '/images/about-us.jpeg',

@@ -44,8 +44,8 @@ export default function ContactPage() {
                 </p>
               </div>
               <p className="booking-note booking-note--spaced" id="booking">
-                <strong>Book a Consultation</strong> — online scheduling is coming soon (Phase 4).
-                For now, call or send the form and we&rsquo;ll reach out within one business day.
+                Prefer to talk it through? <strong>Call us or send the form</strong>, and we&rsquo;ll
+                schedule a consultation that fits your timeline.
               </p>
             </div>
 

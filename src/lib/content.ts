@@ -78,15 +78,33 @@ export const servicesOverview = {
   ],
 };
 
+// S3.5 — WHO WE SERVE
+// Client-supplied audience segments. Moved out of the Grounds Maintenance section and
+// placed directly under "What We Do" (client review 2026-08-16) so visitors see who we
+// serve immediately below the service lines.
+export const whoWeServe = {
+  h3: 'Who We Serve',
+  items: [
+    'Property Management Companies',
+    'HOAs & Condominium Associations',
+    'Office & Retail Properties',
+    'Medical & Professional Offices',
+    'Churches & Nonprofit Organizations',
+    'Municipal & Educational Facilities',
+  ],
+};
+
 // S4–S6 — SERVICE LINE DETAILS
 type ServiceDetail = {
   id: string;
   label: string;
   image: string;
+  /** Where the cover crop anchors in the detail section, which is far taller than the
+   *  source photos. Only needed when centring would cut through a face. */
+  imagePosition?: string;
   h2: string;
   accent: string;
   paragraphs: string[];
-  whoWeServe?: string[];
   bullets: string[];
   ctaLead: string;
   ctas: { label: string; href: string }[];
@@ -101,14 +119,6 @@ export const serviceDetails: ServiceDetail[] = [
     paragraphs: [
       'Your property’s exterior makes a lasting first impression. Whether it’s a home, commercial property, or government facility, Medina Services delivers consistent, professional grounds maintenance tailored to the needs of your property. From routine upkeep to recurring service contracts, we keep outdoor spaces clean, well-maintained, and looking their best year-round.',
       'Flexible scheduling, dependable crews, and direct owner accountability on every project and account.',
-    ],
-    whoWeServe: [
-      'Property Management Companies',
-      'HOAs & Condominium Associations',
-      'Office & Retail Properties',
-      'Medical & Professional Offices',
-      'Churches & Nonprofit Organizations',
-      'Municipal & Educational Facilities',
     ],
     bullets: [
       'Mowing, Edging & Turf Care',
@@ -126,11 +136,10 @@ export const serviceDetails: ServiceDetail[] = [
       'Pressure Washing',
       'Exterior Property Improvements',
     ],
+    // Single CTA per service line (client review 2026-08-16): the "Book a Consultation"
+    // button pointed at a booking tool that does not exist yet, so it led nowhere.
     ctaLead: 'Ready to put your grounds on a reliable maintenance schedule?',
-    ctas: [
-      { label: 'Request an Estimate', href: '#estimate' },
-      { label: 'Book a Consultation', href: '#booking' },
-    ],
+    ctas: [{ label: 'Request an Estimate', href: '#estimate' }],
   },
   {
     id: 'property',
@@ -159,19 +168,19 @@ export const serviceDetails: ServiceDetail[] = [
       'General Property Repairs & Improvements',
     ],
     ctaLead: 'Let us take the maintenance burden off your plate.',
-    ctas: [
-      { label: 'Request an Estimate', href: '#estimate' },
-      { label: 'Contact Us Today', href: '/contact' },
-    ],
+    ctas: [{ label: 'Request an Estimate', href: '#estimate' }],
   },
   {
     id: 'remodeling',
     label: 'Remodeling & Construction',
     image: 'IMG-04',
+    // The crew photo has people at both edges; centring slices the left one through
+    // the face. Anchoring right drops her cleanly and keeps the other three whole.
+    imagePosition: '70% 50%',
     h2: 'Full-Scope Renovation and Construction Services',
     accent: 'Renovation',
     paragraphs: [
-      'Whether you’re renovating a commercial office, completing a government facility buildout, or remodeling a kitchen for a residential client, Medina Services brings the same standard of licensed craftsmanship and personal accountability to every project.',
+      'Whether we’re renovating a commercial office, completing a government facility buildout, or remodeling a kitchen for a residential client, Medina Services brings the same standard of licensed craftsmanship and personal accountability to every project.',
       'We manage each engagement from start to finish. That means one point of contact, clear timelines, and a Virginia Class A Licensed Contractor with documented past performance.',
     ],
     bullets: [
@@ -193,10 +202,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Exterior Renovations & Improvements',
     ],
     ctaLead: "Have a project in mind? Let's talk.",
-    ctas: [
-      { label: 'Book a Consultation', href: '#booking' },
-      { label: 'Request an Estimate', href: '#estimate' },
-    ],
+    ctas: [{ label: 'Request an Estimate', href: '#estimate' }],
   },
 ];
 
@@ -224,52 +230,40 @@ export const recentWork = {
   cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };
 
-// Before & After — a recent deck rebuild (client-provided photos, Aug 2026).
+// Before & After — client-provided project photos.
+// Per the 2026-08-16 review: the three grounds-maintenance pairs are back on the site,
+// alongside a single pair from the recent deck rebuild (the rear-deck view she picked).
 export const beforeAfter = {
   intro:
-    'A recent deck rebuild in Northern Virginia. Click any photo to open the slider and compare the before and after.',
+    'Grounds work and a recent deck rebuild in Northern Virginia. Click any photo to open the slider and compare the before and after.',
   pairs: [
+    {
+      before: '/images/before-landscaping-1.jpg',
+      after: '/images/after-landscaping-1.jpg',
+      caption: 'Foundation beds, cleared and mulched',
+      beforeAlt: 'A foundation planting bed swallowed by tall grass and weeds growing up through the shrubs',
+      afterAlt: 'The same bed cleared and mulched, with the shrubs pruned level and flowering liriope along the front',
+    },
+    {
+      before: '/images/before-landscaping-2.jpg',
+      after: '/images/after-landscaping-2.jpg',
+      caption: 'Front entry beds',
+      beforeAlt: 'Shrubs at a front entrance grown past the porch wall, with lawn creeping over the bed',
+      afterAlt: 'The same entrance with the shrubs cut back and a freshly mulched bed edged against the lawn',
+    },
+    {
+      before: '/images/before-landscaping-3.jpg',
+      after: '/images/after-landscaping-3.jpg',
+      caption: 'Walkway beds and shrub pruning',
+      beforeAlt: 'Shrubs along a front walkway lost in overgrown grass, with no defined bed line',
+      afterAlt: 'The same walkway with the shrubs pruned to shape and the bed re-cut and mulched',
+    },
     {
       before: '/images/before-deck-1.jpg',
       after: '/images/after-deck-1.jpg',
       caption: 'Rear deck, seen from the yard',
       beforeAlt: 'The back of a townhouse with its original wood deck, stained brown and weathered',
       afterAlt: 'The same townhouse with the deck rebuilt, now with new boards and white railing',
-    },
-    {
-      before: '/images/before-deck-2.jpg',
-      after: '/images/after-deck-2.jpg',
-      caption: 'Back deck and railing',
-      beforeAlt: 'Standing on the old back deck, looking across worn boards and a brown wood railing toward the yard',
-      afterAlt: 'The same view after the rebuild, with new boards underfoot and white railing',
-    },
-    {
-      before: '/images/before-deck-3.jpg',
-      after: '/images/after-deck-3.jpg',
-      caption: 'Front deck, street side',
-      beforeAlt: 'The street-side deck before the rebuild, with faded boards and a brown wood railing',
-      afterAlt: 'The same street-side deck rebuilt with new boards and white railing',
-    },
-    {
-      before: '/images/before-deck-4.jpg',
-      after: '/images/after-deck-4.jpg',
-      caption: 'Rear deck and support framing',
-      beforeAlt: 'The rear deck before the rebuild, seen from behind the back fence',
-      afterAlt: 'The rebuilt rear deck with white railing and new support posts underneath',
-    },
-    {
-      before: '/images/before-deck-5.jpg',
-      after: '/images/after-deck-5.jpg',
-      caption: 'New boards and railing, back deck',
-      beforeAlt: 'Split, sun-faded boards and a brown railing on the back deck',
-      afterAlt: 'New boards and white railing in the same spot on the back deck',
-    },
-    {
-      before: '/images/before-deck-6.jpg',
-      after: '/images/after-deck-6.jpg',
-      caption: 'New boards and railing, front deck',
-      beforeAlt: 'Worn deck boards and brown railing on the front deck, with the street beyond',
-      afterAlt: 'The front deck after the rebuild, with new boards and white railing',
     },
   ],
 };
@@ -307,11 +301,11 @@ export const whyMedina = {
     },
     {
       title: 'Minority-Owned Business',
-      body: 'Helps clients meet diversity spending goals and qualifies us for government contracts reserved for small, minority-owned businesses. 8(a) certification in progress.',
+      body: 'Supports government and commercial clients in meeting supplier diversity and small business participation goals while delivering reliable, high-quality services.',
     },
     {
       title: 'SAM.gov Registered — UEI: LXG1KCA49SG1 | CAGE: 88GC1',
-      body: 'Fully registered and ready for federal government contracting awards. All NAICS codes on file.',
+      body: 'Fully registered and ready for federal government contracting awards.',
     },
     {
       title: 'Multi-Trade Capability',
@@ -418,6 +412,9 @@ export const about = {
 
 export const nav = {
   links: [
+    // Home is explicit (client review 2026-08-16): from /about or /contact there was no
+    // labelled way back to the homepage other than the logo.
+    { label: 'Home', href: '/' },
     {
       label: 'Services',
       href: '#services',

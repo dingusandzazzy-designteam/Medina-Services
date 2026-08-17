@@ -1,7 +1,7 @@
 import Reveal from '@/components/Reveal';
 import SlotImage from '@/components/SlotImage';
 import { Chevron } from '@/lib/icons';
-import { servicesOverview } from '@/lib/content';
+import { servicesOverview, whoWeServe } from '@/lib/content';
 
 /** S3 — Services overview. Each card carries the index number + the same documentary
  * photo as its detail section below (image echo), linking overview → detail. */
@@ -52,6 +52,16 @@ export default function ServicesOverview() {
             );
           })}
         </div>
+
+        {/* Who We Serve — audience segments, directly under the service lines */}
+        <Reveal className="svc__serve">
+          <h3 className="svc__serve-label">{whoWeServe.h3}</h3>
+          <ul className="svc__serve-list">
+            {whoWeServe.items.map((w) => (
+              <li key={w}>{w}</li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
