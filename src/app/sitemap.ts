@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 const SITE_URL = 'https://medinaservices.us';
 
-// Baseline sitemap (expanded/automated in Phase 5).
+// Add a route here when a new page is created.
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ['', '/about', '/contact'];
   return routes.map((path) => ({

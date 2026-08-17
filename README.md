@@ -1,29 +1,107 @@
-# Medina Services — Website Redesign
+# Medina Services — Website
 
-Marketing website for **Medina Services, LLC** — a Virginia Class A Licensed, minority-owned contracting firm serving commercial, government, and residential clients in Northern Virginia since 2016. Three service lines: **Grounds Maintenance · Property Maintenance & Repair · Remodeling & Construction**.
+Marketing site for **Medina Services, LLC**, a Virginia Class A Licensed, minority-owned
+contracting firm serving commercial, government, and residential clients across Northern
+Virginia. Three service lines: Grounds Maintenance, Property Maintenance & Repair, and
+Remodeling & Construction.
 
-**Deliverable:** a fast, responsive, secure, SEO-friendly **single-page** site + supporting **About Us** and **Contact** pages, built for hosting on **Vercel** and migrated to the client's **GitHub** repo on approval.
+Built with **Next.js 14** (App Router, TypeScript). A single-page home plus `/about` and
+`/contact`.
 
-## Repo layout
+---
 
-| Path | Purpose |
+## Running it
+
+The application lives in `src/`.
+
+```bash
+cd src
+npm install
+npm run dev          # http://localhost:3000
+```
+
+```bash
+npm run build && npm start   # production build
+```
+
+Requires Node 18.17 or newer.
+
+---
+
+## Deploying
+
+Hosted on Vercel. Two project settings matter:
+
+| Setting | Value |
 |---|---|
-| `Documents/` | Client-provided source inputs (brand guidelines, approved copy). **Source of truth.** |
-| `plan/` | Phased project plan (`00.Plan.md` = master). |
-| `workflow/` | `Handoff.md` (live state) + `Requirements.md` (task brief). |
-| `copy/` | Build-ready copy derived from `Documents/03. Copy/`. |
-| `design/` | Design tokens + component notes extracted from the brand guidelines. |
-| `assets/` | Logos, imagery, icons used by the build. |
-| `src/` | The website build. **Stack TBD** (see plan Phase 2). |
-| `.claude/skills/` | Project-agnostic skills: project-manager · design-audit · seo-research · seo-copy-sync. Add project-specific skills (copy, motion, deploy) as needed. |
+| **Root Directory** | `src` |
+| **Framework Preset** | Next.js |
 
-## Key facts (from approved copy)
+Pushes to `main` deploy to production; every other branch gets a preview URL.
 
-- **Contact:** (571) 395-3927 · info@medinaservices.us · 3544 Finish Line Drive, Gainesville, VA · medinaservices.us
-- **All form submissions route to:** `info@medinaservices.us`
-- **Credentials:** VA Class A Licensed #2705196283 · SAM.gov UEI LXG1KCA49SG1 / CAGE 88GC1 · Minority-owned · 8(a) & SWaM in progress
-- **CTAs in copy:** Request a Free Estimate · Book a Consultation · Contact Us · View Our Services · Learn More · Learn Our Story
+### Environment variables
 
-## Status
+Set these in **Production and Preview**, then redeploy — a new variable does not reach an
+already-built deployment.
 
-See `workflow/Handoff.md` for current state and `plan/00.Plan.md` for the trajectory. **Phase 0 (Intake & Setup)** — skeleton scaffolded 2026-06-09.
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | Resend API key with sending access. Server-side only — never prefix with `NEXT_PUBLIC_`. |
+| `LEAD_TO_EMAIL` | Where form submissions land. Currently `info@medinaservices.us`. |
+| `LEAD_FROM_EMAIL` | Sender, e.g. `Medina Services Website <leads@medinaservices.us>`. The domain must be verified in Resend. |
+| `LEAD_CC_EMAIL` | Optional. Copies a second inbox. |
+| `LEAD_AUTOREPLY` | Optional. `true` also sends a confirmation to whoever submitted the form. |
+
+`src/.env.example` documents the same list. Copy it to `src/.env.local` for local work;
+that file is git-ignored.
+
+---
+
+## Structure
+
+```
+src/
+  app/
+    layout.tsx          fonts, metadata, JSON-LD, nav and footer
+    page.tsx            home
+    about/, contact/
+    api/lead/route.ts   form submissions → email
+    globals.css         design tokens, motion, every section's styles
+    sitemap.ts, robots.ts
+  components/
+    sections/           one component per home section
+    forms/LeadForm.tsx  estimate and contact form
+    ...                 Nav, Footer, Logo, Button, Reveal, SlotImage, BeforeAfter
+  lib/
+    content.ts          all site copy
+    icons.tsx           brand icons
+  public/               images, logo, capability statement PDF
+```
+
+**All copy lives in `src/lib/content.ts`.** Text changes belong there, not in components.
+Images are mapped by slot id in `src/components/SlotImage.tsx`.
+
+---
+
+## The lead form
+
+`POST /api/lead` validates the submission server-side and sends it through the Resend REST
+API. It carries a honeypot field, a minimum fill time, and a best-effort per-IP rate limit.
+`reply_to` is set to the sender's own address, so replying from the inbox goes straight
+back to them.
+
+If the environment variables are missing the route returns 500 and the form shows the
+phone and email fallback. It never reports success for a message it did not send.
+
+---
+
+## Known limitations
+
+- **Testimonials are sample copy.** The three quotes under "What Our Clients Say" were
+  written to fill the layout and are not real client reviews. Replace them with genuine
+  ones or hide the section.
+- **No booking tool.** "Book a Consultation" was removed because no scheduling tool was
+  chosen. Add the CTA back alongside whichever tool gets picked.
+- **The Before/After slider uses plain `<img>` tags** and bypasses `next/image`, so those
+  photos are not automatically optimised.
+- **ESLint is not configured**, so builds skip it. Type checking runs and passes.

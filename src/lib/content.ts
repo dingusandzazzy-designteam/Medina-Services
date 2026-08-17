@@ -213,7 +213,7 @@ export const recentWork = {
   h2: 'Recent Work',
   intro:
     'A look at the grounds, maintenance, and renovation work we deliver for commercial, government, and residential clients across Northern Virginia.',
-  // Documentary gallery slots (4:3) — see prompts/homepage.md (IMG-G1…G7).
+  // Gallery slots (4:3). The slot ids map to files in components/SlotImage.tsx.
   // Categories per client review: the screened-in porch and the stamped patio are new
   // construction (split into two projects), and the basement cabinet/shelving/painting
   // job is remodeling — not property maintenance.

@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Type checking is ON (tsc --noEmit passes clean as of the Phase 3 build).
-  // ESLint isn't configured yet (no .eslintrc) — skip it during builds until Phase 6/9 sets it up.
+  // Type checking runs during the build. ESLint is not configured (no .eslintrc),
+  // so it is skipped — set one up and remove this line.
   eslint: { ignoreDuringBuilds: true },
-  // Security headers (baseline; expanded in Phase 5).
+  // Security headers.
   async headers() {
     return [
       {

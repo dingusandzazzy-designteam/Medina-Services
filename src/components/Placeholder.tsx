@@ -1,5 +1,5 @@
 /**
- * Image placeholder — used until AI-generated assets land (see prompts/homepage.md).
+ * Image placeholder — rendered when a slot in SlotImage has no asset mapped to it.
  * Reserves the correct aspect ratio (no CLS) and labels the slot id (e.g. IMG-01).
  * Swap for next/image pointing at /public/... when real assets exist.
  */

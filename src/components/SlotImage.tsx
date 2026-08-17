@@ -2,9 +2,12 @@ import Image from 'next/image';
 import Placeholder from './Placeholder';
 
 /**
- * Maps an IA image slot id → generated asset (in /public/images) + descriptive alt.
- * Falls back to <Placeholder> if a slot has no asset yet. Uses next/image (optimized,
- * lazy by default; pass priority for the hero/LCP). See prompts/homepage.md + plan/01.IA.md.
+ * Maps an image slot id → a file in /public/images plus its descriptive alt text.
+ * Falls back to <Placeholder> when a slot has no asset. Uses next/image (optimised,
+ * lazy by default; pass `priority` for the hero so it is not deferred).
+ *
+ * To swap an image, change the `src` here — the slot id stays the same and every
+ * section referencing it follows.
  */
 const MAP: Record<string, { src: string; alt: string }> = {
   'IMG-01': {
