@@ -229,6 +229,9 @@ export const recentWork = {
     // Property Maintenance & Repair example in this section.
     { slot: 'IMG-G5', category: 'Remodeling & Construction', caption: 'Basement finishing' },
     { slot: 'IMG-G8', category: 'Property Maintenance & Repair', caption: 'Shower repair & retiling' },
+    // Ninth card so the 3-up grid ends on a full row. From the stair project the client
+    // supplied, which had not been used anywhere on the site.
+    { slot: 'IMG-G9', category: 'Remodeling & Construction', caption: 'Stair opening & railing' },
   ],
   cta: { label: 'Request a Free Estimate', href: '#estimate' },
 };

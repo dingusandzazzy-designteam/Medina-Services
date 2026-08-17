@@ -50,6 +50,7 @@ const MAP: Record<string, { src: string; alt: string }> = {
   'IMG-G6': { src: '/images/work-garage.jpg', alt: 'A garage converted into finished living space with a new door, window, and siding' },
   'IMG-G7': { src: '/images/work-porch.jpg', alt: 'A newly built screened-in porch addition opening onto a stamped-concrete patio' },
   'IMG-G8': { src: '/images/work-bathroom.jpg', alt: 'A rebuilt shower finished in stacked stone tile with a pebble floor' },
+  'IMG-G9': { src: '/images/work-stairs.jpg', alt: 'A finished stair opening with new white balusters and a black handrail, beside a refinished hardwood floor' },
 };
 
 export default function SlotImage({
